@@ -43,6 +43,11 @@ M.mason = {
     "goimports_reviser",
     "golines",
     "delve",
+
+    -- rust
+    "rust-analyzer",
+    "rustfmt",
+    "codelldb",
   },
 }
 
