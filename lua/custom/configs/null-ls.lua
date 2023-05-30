@@ -26,6 +26,13 @@ local sources = {
 
   -- rust
   b.formatting.rustfmt,
+
+  -- python
+  b.formatting.isort,
+  b.formatting.black,
+  b.formatting.autoflake,
+  b.diagnostics.flake8,
+  b.diagnostics.mypy,
 }
 
 null_ls.setup {

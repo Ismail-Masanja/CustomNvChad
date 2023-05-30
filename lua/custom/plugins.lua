@@ -61,6 +61,11 @@ local plugins = {
     },
   },
 
+  -- General
+  {
+    "stevearc/dressing.nvim",
+  },
+
   -- Override plugin definition options
 
   {
@@ -198,6 +203,36 @@ local plugins = {
   -- zig
 
   -- python
+  {
+    "AckslD/swenv.nvim",
+    ft = "python",
+  },
+  {
+    "mfussenegger/nvim-dap-python",
+    ft = "python",
+    config = function(_, opts)
+      local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
+      require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python")
+    end,
+  },
+  {
+    "nvim-neotest/neotest-python",
+    ft = "python",
+    config = function(_, opts)
+      require("neotest").setup {
+        adapters = {
+          require "neotest-python" {
+            dap = {
+              justMyCode = false,
+              console = "integratedTerminal",
+            },
+            args = { "--log-level", "DEBUG", "--quiet" },
+            runner = "pytest",
+          },
+        },
+      }
+    end,
+  },
 
   -- markdown
 

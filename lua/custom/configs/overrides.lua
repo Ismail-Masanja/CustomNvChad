@@ -13,6 +13,7 @@ M.treesitter = {
     "c",
     "markdown",
     "markdown_inline",
+    "python",
   },
   indent = {
     enable = true,
@@ -48,6 +49,16 @@ M.mason = {
     "rust-analyzer",
     "rustfmt",
     "codelldb",
+
+    -- python
+    "debugpy",
+    "flake8",
+    "black",
+    "pyright",
+    "mypy",
+    "autoflake",
+    "isort",
+    "mypy",
   },
 }
 
