@@ -237,6 +237,50 @@ local plugins = {
   -- markdown
 
   -- latex
+  {
+    "lervag/vimtex",
+    ft = "latex",
+    lazy = false,
+    dependencies = {
+      "kdheepak/cmp-latex-symbols",
+      "KeitaNakamura/tex-conceal.vim",
+      {
+        "hrsh7th/cmp-omni",
+        config = function(_, opts)
+          require("cmp").setup {
+            sources = {
+              {
+                name = "omni",
+                option = {
+                  disable_omnifuncs = { "v:lua.vim.lsp.omnifunc" },
+                },
+              },
+            },
+          }
+        end,
+      },
+    },
+    config = function(_, opts)
+      vim.opt.wrap = true
+
+      -- Vimtex configuration.
+      vim.g.vimtex_view_general_viewer = "zathura"
+      vim.g.vimtex_quickfix_enabled = 1
+      vim.g["vimtex_log_ignore"] = {
+        "Underfull",
+        "Overfull",
+        "specifier changed to",
+        "Token not allowed in a PDF string",
+      }
+      vim.g["vimtex_indent_enabled"] = 1
+
+      -- Setup cmp.
+      local cmp = require "cmp"
+      cmp.setup {
+        sources = cmp.config.sources { { name = "omni" } },
+      }
+    end,
+  },
 
   -- webdev
 }

@@ -14,6 +14,7 @@ M.treesitter = {
     "markdown",
     "markdown_inline",
     "python",
+    "latex",
   },
   indent = {
     enable = true,
@@ -59,6 +60,10 @@ M.mason = {
     "autoflake",
     "isort",
     "mypy",
+
+    -- latex
+    "texlab",
+    "latexindent",
   },
 }
 

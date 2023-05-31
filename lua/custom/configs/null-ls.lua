@@ -33,6 +33,9 @@ local sources = {
   b.formatting.autoflake,
   b.diagnostics.flake8,
   b.diagnostics.mypy,
+
+  -- latex
+  b.formatting.latexindent,
 }
 
 null_ls.setup {
